@@ -10,10 +10,10 @@ Once you have downloaded/cloned the repo, run:
 
 The following commands are then available:
 
-    $ npm build-app
-    $ npm server
-    $ npm build-css
-    $ npm watch-css
+    $ npm run build-app
+    $ npm run server
+    $ npm run build-css
+    $ npm run watch-css
 
 "build-app" - compiles the React app.
 "server" - starts up the server (http://localhost:3000).
