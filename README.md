@@ -14,4 +14,5 @@ The following commands are then available:
     $ npm run dev
 
 "build" - compiles (and minifies) the React app in the /build/ folder ready for deployment.
+
 "dev" - starts up the dev server (http://localhost:3000) with HMR.
