@@ -1,7 +1,7 @@
 # React, Webpack Boilerplate
 
 Boilerplate designed to get up and running on a new React project in no time.
-The boilerplate includes ES2015 JS transpiler (Babel), Web Dev Server (with Hot Module Replacement)
+The boilerplate includes ES2015 JS transpiler (Babel), Web Dev Server with Hot Module Replacement (HMR), ES2015 linter ([Airbnb]( https://github.com/airbnb/javascript/tree/master/packages/eslint-config-airbnb))
 and Sass compiler.
 
 Once you have downloaded/cloned the repo, run:
@@ -10,12 +10,8 @@ Once you have downloaded/cloned the repo, run:
 
 The following commands are then available:
 
-    $ npm run build-app
-    $ npm run dev-server
-    $ npm run build-css
-    $ npm run watch-css
+    $ npm run build
+    $ npm run dev
 
-"build-app" - compiles the React app.
-"dev-server" - starts up the dev server (http://localhost:3000).
-"build-css" - compiles the Sass files.
-"watch-css" - watches the Sass files and compiles when they are modified.
+"build" - compiles (and minifies) the React app in the /build/ folder ready for deployment.
+"dev" - starts up the dev server (http://localhost:3000) with HMR.

@@ -1,22 +1,22 @@
 import React from 'react';
 import ReactDOM from 'react-dom';
-import { Router, Route } from 'react-router';
-import { createHistory } from 'history';
+import { Router, Route, browserHistory } from 'react-router';
 
 /*
-  Import Components
+	Import Components
 */
 import NotFound from './components/NotFound';
 import App from './components/App';
 
 /*
-  Routes
+	Routes
 */
-var routes = (
-  <Router history={createHistory()}>
-    <Route path="/" component={App} />
-    <Route path="*" component={NotFound} />
-  </Router>
-)
+const routes = (
+	<Router history={browserHistory}>
+		<Route path="/" component={App}>
+			<Route path="*" component={NotFound} />
+		</Route>
+	</Router>
+);
 
 ReactDOM.render(routes, document.querySelector('#app'));

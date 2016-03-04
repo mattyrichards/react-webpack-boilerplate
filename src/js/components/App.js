@@ -1,13 +1,13 @@
 import React from 'react';
-import '../../scss/main.scss';
+import '../../scss/App.scss';
 
 class App extends React.Component {
   render() {
-    return(
+    return (
       <div>
-        <p>This page has been rendered by React3.</p>
+        <p>This page has been rendered by React.</p>
       </div>
-    )
+    );
   }
 }
 

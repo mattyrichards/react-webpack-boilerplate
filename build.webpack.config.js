@@ -1,28 +1,24 @@
-const webpack = require('webpack');
 const CONFIG = require('./path.config');
 
 module.exports = {
   entry: [
-    'webpack-dev-server/client?http://localhost:3000',
-    'webpack/hot/only-dev-server',
     CONFIG.source + CONFIG.sourcePath + CONFIG.sourcePathName
   ],
   output: {
     path: CONFIG.build + CONFIG.buildPath,
     filename: CONFIG.buildPathName,
-    contentBase: CONFIG.build,
-    publicPath: '/js/',
+    contentBase: CONFIG.build
   },
   module: {
     loaders: [
       {
         test: /\.js$/,
-        loaders: [
-          'react-hot', 
-          'babel?presets[]=react,presets[]=es2015'
-        ],
+        loader: 'babel-loader',
         exclude: 'node_modules',
-        include: CONFIG.source + CONFIG.sourcePath
+        include: CONFIG.source + CONFIG.sourcePath,
+        query: {
+          presets: ['es2015', 'react']
+        }
       },
       {
         test: /\.js$/,
@@ -36,8 +32,5 @@ module.exports = {
       }
     ]
   },
-  devtool: 'eval',
-  plugins: [
-    new webpack.HotModuleReplacementPlugin()
-  ]
+  devtool: 'eval'
 };
