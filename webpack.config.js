@@ -11,9 +11,16 @@ module.exports = {
     path: CONFIG.build + CONFIG.buildPath,
     filename: CONFIG.buildPathName,
     contentBase: CONFIG.build,
-    publicPath: '/js/',
+    publicPath: '/js/'
   },
   module: {
+    preLoaders: [
+      {
+        test: /\.js$/,
+        loader: 'eslint-loader',
+        include: CONFIG.source + CONFIG.sourcePath
+      }
+    ],
     loaders: [
       {
         test: /\.js$/,
@@ -22,11 +29,6 @@ module.exports = {
           'babel?presets[]=react,presets[]=es2015'
         ],
         exclude: 'node_modules',
-        include: CONFIG.source + CONFIG.sourcePath
-      },
-      {
-        test: /\.js$/,
-        loader: 'eslint-loader',
         include: CONFIG.source + CONFIG.sourcePath
       },
       { 

@@ -10,6 +10,13 @@ module.exports = {
     contentBase: CONFIG.build
   },
   module: {
+  	preLoaders: [
+      {
+        test: /\.js$/,
+        loader: 'eslint-loader',
+        include: CONFIG.source + CONFIG.sourcePath
+      }
+    ],
     loaders: [
       {
         test: /\.js$/,
@@ -19,11 +26,6 @@ module.exports = {
         query: {
           presets: ['es2015', 'react']
         }
-      },
-      {
-        test: /\.js$/,
-        loader: 'eslint-loader',
-        include: CONFIG.source + CONFIG.sourcePath
       },
       { 
         test: /\.scss$/, 
