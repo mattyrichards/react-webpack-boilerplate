@@ -10,13 +10,6 @@ module.exports = {
     contentBase: CONFIG.build
   },
   module: {
-  	preLoaders: [
-      {
-        test: /\.js$/,
-        loader: 'eslint-loader',
-        include: CONFIG.source + CONFIG.sourcePath
-      }
-    ],
     loaders: [
       {
         test: /\.js$/,
