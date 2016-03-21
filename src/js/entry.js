@@ -9,15 +9,8 @@ import NotFound from './components/NotFound';
 import Home from './components/Home';
 import Page from './components/Page';
 
-class App extends React.Component {
-  render() {
-    return (
-		<div>
-			{this.props.children}
-		</div>
-    );
-  }
-}
+const App = (props) =>
+	<div>{props.children}</div>;
 
 App.propTypes = {
   children: React.PropTypes.node,
