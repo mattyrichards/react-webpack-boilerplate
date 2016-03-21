@@ -9,6 +9,7 @@ import NotFound from './components/NotFound';
 import Home from './components/Home';
 import Page from './components/Page';
 
+// ES6 style stateless function
 const App = (props) =>
 	<div>{props.children}</div>;
 
