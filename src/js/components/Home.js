@@ -1,7 +1,6 @@
 import React from 'react';
 import { Link } from 'react-router';
-
-import '../../scss/Home.scss';
+import css from '../../css/components/Home.css';
 
 class Home extends React.Component {
   constructor() {
@@ -15,7 +14,7 @@ class Home extends React.Component {
     const pageNumber = 666;
     return (
       <div>
-        <p>This page has been rendered by {this.state.demoState}</p>
+        <p className={css.paragraph}>This page has been rendered by {this.state.demoState}</p>
         <p><Link to={`/page/${pageNumber}`}>An example page</Link>
         , demonstrates react-router.</p>
       </div>
