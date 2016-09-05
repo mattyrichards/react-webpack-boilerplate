@@ -1,4 +1,8 @@
-.headerBold {
-  background-color: grey;
+.large {
+  composes: large from "../shared/fontSizes.css";
+  font-weight: bold;
+}
+.paragraph {
   color: goldenrod;
+  font-size: 24px;
 }

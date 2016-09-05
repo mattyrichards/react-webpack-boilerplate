@@ -6,10 +6,11 @@ import css from '../../css/components/Page.css';
 function Page(props) {
   return (
     <div>
-      <h2>
-        This is a new page. The path part is <b className={css.headerBold}>
+      <h2 className={css.large}>
+        This is a new page. The path part is <b>
         {props.params.pageNumber}</b>
       </h2>
+      <p className={css.paragraph}>A random paragraph</p>
       <p><Link to="/">Return to the home page</Link></p>
     </div>
   );
