@@ -64,6 +64,10 @@ module.exports = {
   },
   devtool: 'eval',
   plugins: [
-
+    new HtmlWebpackPlugin({
+      inject: false,
+      filename: CONFIG.build + '/index.html',
+      template: CONFIG.source + CONFIG.sourcePathEJS + 'index.ejs',
+    })
   ]
 };
