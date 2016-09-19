@@ -14,8 +14,8 @@ class Home extends React.Component {
     const pageNumber = 666;
     return (
       <div>
-        <p className={css.paragraph}>This page has been rendered by {this.state.demoState}</p>
-        <p><Link to={`/page/${pageNumber}`}>An example page</Link>
+        <p className={css.paragraph}>This page has been rendered by {this.state.demoState} and styled by CSS Modules.</p>
+        <p><Link to={`/page/${pageNumber}`}>An example link</Link>
         , demonstrates react-router.</p>
       </div>
     );

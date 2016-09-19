@@ -4,6 +4,9 @@ const combineLoaders = require('webpack-combine-loaders');
 const autoprefixer = require('autoprefixer');
 const ExtractTextPlugin = require('extract-text-webpack-plugin');
 const values = require('postcss-modules-values');
+const atImport = require('postcss-import');
+const calc = require('postcss-calc');
+const nested = require('postcss-nested');
 
 module.exports = {
   entry: [
@@ -48,14 +51,11 @@ module.exports = {
     ]
   },
   postcss: function () {
-    return [values, autoprefixer];
+    return [atImport({addDependencyTo: webpack}), nested, values, calc({mediaQueries: true}), autoprefixer, autoprefixer];
   },
   devtool: 'cheap-module-source-map',
   plugins: [
-    new ExtractTextPlugin('../css/styles.css',
-    {
-      allChunks: true
-    }),
+    new ExtractTextPlugin('../css/styles.css'),
     new webpack.DefinePlugin({
       'process.env': {
         'NODE_ENV': JSON.stringify('production')

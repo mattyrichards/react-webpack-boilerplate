@@ -5,7 +5,7 @@ module.exports = {
 	sourcePath: '/js/',
 	sourcePathCSS: '/css/',
 	sourcePathName: 'entry.js',
-	build: path.join(__dirname, 'build'),
+	build: path.join(__dirname, 'prod'),
 	buildPath: '/js/',
 	buildPathName: 'app.js'
 };

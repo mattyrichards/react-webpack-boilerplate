@@ -2,11 +2,14 @@ const webpack = require('webpack');
 const CONFIG = require('./path.config');
 const combineLoaders = require('webpack-combine-loaders');
 const autoprefixer = require('autoprefixer');
+const values = require('postcss-modules-values');
+const HtmlWebpackPlugin = require('html-webpack-plugin');
+const atImport = require('postcss-import');
+const calc = require('postcss-calc');
+const nested = require('postcss-nested');
 
 module.exports = {
   entry: [
-    'webpack-dev-server/client?http://localhost:5000',
-    'webpack/hot/only-dev-server',
     CONFIG.source + CONFIG.sourcePath + CONFIG.sourcePathName
   ],
   output: {
@@ -56,11 +59,11 @@ module.exports = {
       }
     ]
   },
-  postcss: function () {
-    return [autoprefixer];
+  postcss: function (webpack) {
+    return [atImport({addDependencyTo: webpack}), nested, values, calc({mediaQueries: true}), autoprefixer];
   },
   devtool: 'eval',
   plugins: [
-    new webpack.HotModuleReplacementPlugin()
+
   ]
 };

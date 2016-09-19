@@ -1,6 +1,6 @@
 node_modules
 .DS_Store
 .idea
-build/js/app.js
-build/js/app.js.map
-build/css
+prod/js/app.js
+prod/js/app.js.map
+prod/css

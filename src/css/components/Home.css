@@ -1,4 +1,3 @@
 .paragraph {
-  color: goldenrod;
-  composes: paragraphGreen from "../shared/paragraph.css";
+  composes: paragraphRed from "../shared/paragraph.css";
 }

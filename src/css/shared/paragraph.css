@@ -1,6 +1,8 @@
+@value color-red from "../values/colours.css";
+
 .paragraphGreen {
   color: green;
 }
 .paragraphRed {
-  color: red;
+  color: color-red;
 }
