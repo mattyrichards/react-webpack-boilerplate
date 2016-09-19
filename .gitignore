@@ -4,3 +4,4 @@ node_modules
 prod/js/app.js
 prod/js/app.js.map
 prod/css
+prod/index.html
