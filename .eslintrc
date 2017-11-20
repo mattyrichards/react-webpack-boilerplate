@@ -1,7 +1,0 @@
-{  
-  "extends": "airbnb",
-  "rules": {
-    "no-trailing-spaces": [0, { "skipBlankLines": true }],
-    "max-len": [2, 150, 2, {"ignoreUrls": true}]
-  }
-}
