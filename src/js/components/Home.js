@@ -17,6 +17,7 @@ class Home extends React.Component {
         <p className={css.paragraph}>This page has been rendered by {this.state.demoState} and styled by CSS Modules. 1234</p>
         <p><Link to={`/page/${pageNumber}`}>An example link</Link>
         , demonstrates react-router.</p>
+        <p><Link to="/redux">Redux page</Link></p>
       </div>
     );
   }
