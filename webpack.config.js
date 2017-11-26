@@ -1,66 +1,55 @@
 const webpack = require('webpack');
-const CONFIG = require('./path.config');
-const combineLoaders = require('webpack-combine-loaders');
-const autoprefixer = require('autoprefixer');
-const values = require('postcss-modules-values');
-const HtmlWebpackPlugin = require('html-webpack-plugin');
-const atImport = require('postcss-import');
-const calc = require('postcss-calc');
-const nested = require('postcss-nested');
+const paths = require('./paths');
 
 module.exports = {
   entry: [
-    CONFIG.source + CONFIG.sourcePath + CONFIG.sourcePathName
+    'react-hot-loader/patch',
+    'webpack-dev-server/client?http://localhost:8080',
+    'webpack/hot/only-dev-server',
+    paths.source + paths.sourcePath + paths.sourcePathName
   ],
   output: {
-    path: CONFIG.build + CONFIG.buildPath,
-    filename: CONFIG.buildPathName,
-    contentBase: CONFIG.build,
-    publicPath: '/js/'
+    filename: paths.buildPathName,
+    path: paths.build + paths.buildPath,
+    publicPath: paths.buildPath
   },
   module: {
-    loaders: [
+    rules: [
       {
         test: /\.js$/,
-        loaders: [
-          'react-hot-loader/webpack',
-          'babel?presets[]=react,presets[]=es2015'
-        ],
-        exclude: 'node_modules',
-        include: CONFIG.source + CONFIG.sourcePath
+        exclude: /(node_modules|bower_components)/,
+        use: [
+          {
+            loader: 'babel-loader',
+            options: {
+              presets: ['babel-preset-env', 'babel-preset-react']
+            }
+          }
+        ]
       },
       {
         test: /\.css$/,
-        loader: combineLoaders([
-          {
-            loader: 'style-loader',
-            include: CONFIG.source + CONFIG.sourcePathCSS
-          },
+        use: [
+          { loader: 'style-loader' },
           {
             loader: 'css-loader',
-            include: CONFIG.source + CONFIG.sourcePathCSS,
-            query: {
-              modules: true,
-              localIdentName: '[name]__[local]__[hash:base64:5]'
+            options: {
+              modules: true
             }
           },
-          {
-            loader: 'postcss-loader',
-            include: CONFIG.source + CONFIG.sourcePathCSS
-          }
-        ])
+          { loader: 'postcss-loader' }
+        ]
       }
     ]
   },
-  postcss: function (webpack) {
-    return [atImport({addDependencyTo: webpack}), nested, values, calc({mediaQueries: true}), autoprefixer];
-  },
   devtool: 'eval',
+  devServer: {
+    contentBase: paths.build,
+    hot: true,
+    publicPath: paths.buildPath,
+  },
   plugins: [
-    new HtmlWebpackPlugin({
-      inject: false,
-      filename: CONFIG.build + '/index.html',
-      template: CONFIG.source + CONFIG.sourcePathEJS + 'index.ejs',
-    })
+    new webpack.NamedModulesPlugin(),
+    new webpack.HotModuleReplacementPlugin()
   ]
 };

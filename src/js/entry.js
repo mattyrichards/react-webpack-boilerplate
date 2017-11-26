@@ -1,19 +1,15 @@
 import React from 'react';
 import ReactDOM from 'react-dom';
-import { BrowserRouter as Router, Route, Switch } from 'react-router-dom';
-import { Provider } from "react-redux";
-import { createStore, applyMiddleware } from "redux";
-import promise from "redux-promise";
+import { Provider } from 'react-redux';
+import { createStore, applyMiddleware } from 'redux';
+import promise from 'redux-promise';
 import { composeWithDevTools } from 'redux-devtools-extension/developmentOnly';
 
 // Import reducers
-import rootReducer from "./reducers";
+import rootReducer from './reducers';
 
-// Import components/containers
-import NotFound from './components/NotFound';
-import Home from './components/Home';
-import Page from './components/Page';
-import Redux from './containers/Redux';
+// Import components
+import App from './components/App';
 
 // Create Redux store, apply middlewares etc
 const store = createStore(
@@ -23,15 +19,36 @@ const store = createStore(
 	)
 );
 
-ReactDOM.render((
-	<Provider store={store}>
-		<Router>
-			<Switch>
-				<Route path="/page/:pageNumber" component={Page} />
-				<Route path="/redux" component={Redux} />
-				<Route path="/" component={Home} />
-				<Route component={NotFound} />
-			</Switch>
-		</Router>
-	</Provider>
-), document.querySelector('#app'));
+// Create a function which will render a component to our DOM
+const render = (Component) => {
+	ReactDOM.render(
+		<Provider store={store}>
+			<Component />
+		</Provider>, 
+		document.querySelector('#app')
+	);
+};
+
+// Render the application
+render(App);
+
+// React HOT/HMR
+if (module.hot) {
+  module.hot.accept('./components/App', () => { console.log('WUT!');render(App) })
+}
+
+// const render = (Component) => {
+//   ReactDOM.render(<AppContainer>
+//     <Provider store={store}>
+//       <Component />
+//     </Provider>
+//   </AppContainer>,
+//     document.getElementById('root')
+//   );
+// };
+
+// render(RootApp);
+
+// module.hot.accept('./RootApp', () => {
+//   render(RootApp)
+// });
