@@ -1,4 +1,5 @@
 const webpack = require('webpack');
+const htmlWebpackPlugin = require('html-webpack-plugin');
 const paths = require('./paths');
 
 module.exports = {
@@ -36,6 +37,14 @@ module.exports = {
           },
           { loader: 'postcss-loader' }
         ]
+      },
+      {
+        test: /\.hbs$/,
+        use: [
+          {
+            loader: 'handlebars-loader'
+          }
+        ]
       }
     ]
   },
@@ -47,6 +56,10 @@ module.exports = {
   },
   plugins: [
     new webpack.NamedModulesPlugin(),
-    new webpack.HotModuleReplacementPlugin()
+    new webpack.HotModuleReplacementPlugin(),
+    new htmlWebpackPlugin({
+      filename: paths.build + '/index.html',
+      template: paths.source + paths.sourcePathTemplate + 'index.hbs',
+    })
   ]
 };
