@@ -10,9 +10,10 @@ module.exports = {
     paths.source + paths.sourcePath + paths.sourcePathName
   ],
   output: {
-    filename: paths.buildPathName,
-    path: paths.build + paths.buildPath,
-    publicPath: paths.buildPath
+    // this needs to be a relative value so can't use paths.buildPath (/js/)
+    filename: 'js/' + paths.buildPathName,
+    path: paths.build,
+    publicPath: '/'
   },
   module: {
     rules: [
@@ -52,14 +53,14 @@ module.exports = {
   devServer: {
     contentBase: paths.build,
     hot: true,
-    publicPath: paths.buildPath,
+    publicPath: '/',
   },
   plugins: [
     new webpack.NamedModulesPlugin(),
     new webpack.HotModuleReplacementPlugin(),
     new htmlWebpackPlugin({
-      filename: paths.build + '/index.html',
       template: paths.source + paths.sourcePathTemplate + 'index.hbs',
+      filename: 'index.html'
     })
   ]
 };
