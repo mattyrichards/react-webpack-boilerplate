@@ -11,5 +11,6 @@ module.exports = {
 	filenameEntry: 'entry.js',
 	filenameOutput: 'app.js',
 	filenameTemplate: 'index.hbs',
-	filenameHTML: 'index.html'
+	filenameHTML: 'index.html',
+	filenameCSS: 'style.css'
 };
