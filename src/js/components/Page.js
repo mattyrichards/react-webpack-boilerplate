@@ -10,7 +10,7 @@ function Page(props) {
         This is a new page. The path part is <b>
         {props.match.params.pageNumber}</b>
       </h2>
-      <p className={css.paragraph}>A random paragraph 123</p>
+      <p className={css.paragraph}>A random paragraph</p>
       <p><Link to="/">Return to the home page</Link></p>
     </div>
   );

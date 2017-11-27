@@ -19,6 +19,8 @@ class Redux extends Component {
     return (
       <div>
         Redux says: {this.props.hello}!
+        <br />
+        <Link to="/">Back to homepage</Link>
       </div>
     );
   }

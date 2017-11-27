@@ -35,23 +35,6 @@ render(App);
 // React HOT/HMR
 if (module.hot) {
   module.hot.accept('./components/App', () => { 
-		const NextApp = require('./components/App').default
-		render(NextApp);
+		render(App);
 	})
 }
-
-// const render = (Component) => {
-//   ReactDOM.render(<AppContainer>
-//     <Provider store={store}>
-//       <Component />
-//     </Provider>
-//   </AppContainer>,
-//     document.getElementById('root')
-//   );
-// };
-
-// render(RootApp);
-
-// module.hot.accept('./RootApp', () => {
-//   render(RootApp)
-// });
