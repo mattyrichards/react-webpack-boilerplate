@@ -1,18 +1,17 @@
 const webpack = require('webpack');
 const htmlWebpackPlugin = require('html-webpack-plugin');
-const paths = require('./paths');
+const config = require('./config');
 
 module.exports = {
   entry: [
     'react-hot-loader/patch',
     'webpack-dev-server/client?http://localhost:8080',
     'webpack/hot/only-dev-server',
-    paths.source + paths.sourcePath + paths.sourcePathName
+    config.pathSource + config.pathJSAbsolute + config.filenameEntry
   ],
   output: {
-    // this needs to be a relative value so can't use paths.buildPath (/js/)
-    filename: 'js/' + paths.buildPathName,
-    path: paths.build,
+    filename: config.pathJSRelative + config.filenameOutput,
+    path: config.pathOutput,
     publicPath: '/'
   },
   module: {
@@ -51,7 +50,7 @@ module.exports = {
   },
   devtool: 'eval',
   devServer: {
-    contentBase: paths.build,
+    contentBase: config.pathOutput,
     hot: true,
     publicPath: '/',
   },
@@ -59,8 +58,8 @@ module.exports = {
     new webpack.NamedModulesPlugin(),
     new webpack.HotModuleReplacementPlugin(),
     new htmlWebpackPlugin({
-      template: paths.source + paths.sourcePathTemplate + 'index.hbs',
-      filename: 'index.html'
+      template: config.pathSource + config.pathSourceTemplate + config.filenameTemplate,
+      filename: config.filenameHTML
     })
   ]
 };
