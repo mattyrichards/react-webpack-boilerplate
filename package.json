@@ -1,7 +1,7 @@
 {
   "name": "reactWebpackBoilerplate",
   "version": "1.0.0",
-  "description": "Boilerplate for writing React apps. Includes Webpack, Web Dev Server (HMR), PostCSS, React Router, Redux and Redux devtools.",
+  "description": "Boilerplate for writing React apps. Includes Webpack, Web Dev Server (HMR), React Hot Loader, PostCSS CSS Modules, React Router, Redux and Redux devtools.",
   "main": "",
   "scripts": {
     "prod": "webpack --config webpack.prod.js",

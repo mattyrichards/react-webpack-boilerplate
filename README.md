@@ -1,8 +1,7 @@
 # React, Webpack Boilerplate
 
 Boilerplate designed to get up and running on a new React project in no time.
-The boilerplate includes ES2015 JS transpiler (Babel), Web Dev Server with Hot Module Replacement (HMR), React Router, ES2015 linter ([Airbnb]( https://github.com/airbnb/javascript/tree/master/packages/eslint-config-airbnb))
-and styling with [CSS Modules](https://github.com/css-modules/css-modules) (including CSS Modules Values).
+The boilerplate configures [Webpack](https://webpack.js.org/) to build the application using the following: ES6 JS transpiler ([Babel](http://babeljs.io)), Web Dev Server with Hot Module Replacement (HMR) and [React Hot Loader](https://github.com/gaearon/react-hot-loader), [React Router](https://reacttraining.com/react-router), [Redux](https://redux.js.org) integration, [Redux Devtools](https://github.com/gaearon/redux-devtools) and styling with [CSS Modules](https://github.com/css-modules/css-modules).
 
 Once you have downloaded/cloned the repo, run:
 
@@ -13,6 +12,6 @@ The following commands are then available:
     $ npm run prod
     $ npm run dev
 
-"prod" - compiles (and minifies) the React app in the /prod/ folder ready for deployment.
+"prod" - compiles (hashes assets and uglifies/minifies) the application in the /public/ folder ready for deployment. HTML, JS and CSS files are generated.
 
-"dev" - starts up the dev server (http://localhost:8080) with HMR.
+"dev" - starts up the dev server (http://localhost:8080) with HMR/React Hot Loader.
