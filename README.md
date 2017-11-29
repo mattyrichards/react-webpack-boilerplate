@@ -15,3 +15,7 @@ The following commands are then available:
 "prod" - compiles (hashes assets and uglifies/minifies) the application in the /public/ folder ready for deployment. HTML, JS and CSS files are generated.
 
 "dev" - starts up the dev server (http://localhost:8080) with HMR/React Hot Loader.
+
+A simple Express server has also been added to serve the production files (files located in /public/ will be served at http://localhost:8080). The following command is available:
+
+    $ node server.js
