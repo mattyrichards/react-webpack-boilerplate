@@ -3,6 +3,7 @@
   font-weight: bold;
 }
 .paragraph {
-  color: goldenrod;
+  color: pink;
   font-size: 24px;
+  display: flex;
 }
